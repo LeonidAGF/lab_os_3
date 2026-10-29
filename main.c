@@ -117,12 +117,11 @@ int main(int argc, char **argv) {
 
     clock_gettime(CLOCK_MONOTONIC, &t0);
 
-    pthread_t th[colthreads];
-
     for (int i = 0; i < colthreads; i++) {
         sarg sa = (sarg){a, n, i, colthreads};
-        pthread_create(&th[i], NULL, sort_blocks, &sa);
-        pthread_detach(th[i]);
+        pthread_t th;
+        pthread_create(&th, NULL, sort_blocks, &sa);
+        pthread_detach(th);
     }
 
     //waiting
@@ -136,12 +135,12 @@ int main(int argc, char **argv) {
         ll step = 2 * w;
         ll npairs = (n + step - 1) / step;
         int active = ((npairs < colthreads) ? npairs : colthreads);
-        marg ma[colthreads];
 
         for (int i = 0; i < active; i++) {
-            ma[i] = (marg){a, buf, n, w, i, active};
-            pthread_create(&th[i], NULL, Merge, &ma[i]);
-            pthread_detach(th[i]);
+            marg ma = (marg){a, buf, n, w, i, active};
+            pthread_t th;
+            pthread_create(&th, NULL, Merge, &ma);
+            pthread_detach(th);
         }
 
         pthread_mutex_lock(&mutex);
