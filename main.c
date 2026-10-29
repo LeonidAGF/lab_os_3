@@ -48,8 +48,8 @@ void *sort_blocks(void *p) {
 
     pthread_mutex_lock(&mutex);
     done_count++;
-    pthread_cond_signal(&cond);
     pthread_mutex_unlock(&mutex);
+    pthread_cond_signal(&cond);
 
     return NULL;
 }
@@ -87,8 +87,8 @@ void *Merge(void *p) {
 
     pthread_mutex_lock(&mutex);
     done_count++;
-    pthread_cond_signal(&cond);
     pthread_mutex_unlock(&mutex);
+    pthread_cond_signal(&cond);
 
     return NULL;
 }
@@ -118,11 +118,10 @@ int main(int argc, char **argv) {
     clock_gettime(CLOCK_MONOTONIC, &t0);
 
     pthread_t th[colthreads];
-    sarg sa[colthreads];
 
     for (int i = 0; i < colthreads; i++) {
-        sa[i] = (sarg){a, n, i, colthreads};
-        pthread_create(&th[i], NULL, sort_blocks, &sa[i]);
+        sarg sa = (sarg){a, n, i, colthreads};
+        pthread_create(&th[i], NULL, sort_blocks, &sa);
         pthread_detach(th[i]);
     }
 
