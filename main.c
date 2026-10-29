@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <time.h>
 
-#define block_size 16
 #define ll long long
 
 typedef struct {
@@ -23,6 +22,7 @@ typedef struct {
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_cond_t cond = PTHREAD_COND_INITIALIZER;
 int done_count = 0;
+ll block_size = 16;
 
 void *sort_blocks(void *p) {
 
@@ -100,11 +100,13 @@ int main(int argc, char **argv) {
     int *a = NULL, *buf = NULL;
     struct timespec t0, t1;
 
-    while ((opt = getopt(argc, argv, "t:n:")) != -1) {
+    while ((opt = getopt(argc, argv, "t:n:b:")) != -1) {
         if (opt == 't')
             colthreads = atoi(optarg);
         if (opt == 'n')
             n = atol(optarg);
+        if (opt == 'b')
+            block_size = atoi(optarg);
     }
 
     a = malloc(n * sizeof(int));

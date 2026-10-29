@@ -17,52 +17,57 @@
 
 4 вариант: Отсортировать массив целых чисел при помощи TimSort.
 
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 4 -n 1000000
-threads=4 n=1000000 time=0.0519 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 16 -n 1000000
-threads=16 n=1000000 time=0.0540 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 24 -n 1000000
-threads=24 n=1000000 time=0.0562 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 2 -n 1000000
-threads=2 n=1000000 time=0.0749 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 1 -n 1000000
-threads=1 n=1000000 time=0.1297 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 3 -n 1000000
-threads=3 n=1000000 time=0.0563 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 5 -n 1000000
-threads=5 n=1000000 time=0.0482 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 6 -n 1000000
-threads=6 n=1000000 time=0.0456 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 8 -n 1000000
-threads=8 n=1000000 time=0.0404 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 12 -n 1000000
-threads=12 n=1000000 time=0.0426 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 10 -n 1000000
-threads=10 n=1000000 time=0.0407 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 9 -n 1000000
-threads=9 n=1000000 time=0.0410 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 8 -n 1000000
-threads=8 n=1000000 time=0.0433 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 8 -n 1000000
-threads=8 n=1000000 time=0.0408 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 8 -n 1000000
-threads=8 n=1000000 time=0.0413 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 8 -n 100
-threads=8 n=100 time=0.0005 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 1 -n 100
-threads=1 n=100 time=0.0004 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 1 -n 100
-threads=1 n=100 time=0.0004 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 1 -n 100
-threads=1 n=100 time=0.0004 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 1 -n 100
-threads=1 n=100 time=0.0004 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 10 -n 100
-threads=10 n=100 time=0.0007 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 10 -n 100
-threads=10 n=100 time=0.0008 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 10 -n 100
-threads=10 n=100 time=0.0007 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$ ./lab_os_3 -t 100 -n 100
-threads=100 n=100 time=0.0052 s
-eonid@LEOBOOK:/mnt/c/Users/Leonid/CLionProjects/lab_os_3/build$
+## О том как на время выпонения влияет количесво потоков и размер сортируемых данных:
+
+threads 4 col of elements in array 1000000 time=0.0519 s
+
+threads 16 col of elements in array 1000000 time=0.0540 s
+
+threads 24 col of elements in array 1000000 time=0.0562 s
+
+threads 2 col of elements in array 1000000 time=0.0749 s
+
+threads 1 col of elements in array 1000000 time=0.1297 s
+
+threads 3 col of elements in array 1000000 time=0.0563 s
+
+threads 5 col of elements in array 1000000 time=0.0482 s
+
+threads 6 col of elements in array 1000000 time=0.0456 s
+
+threads 8 col of elements in array 1000000 time=0.0404 s
+
+threads 12 col of elements in array 1000000 time=0.0426 s
+
+threads 10 col of elements in array 1000000 time=0.0407 s
+
+threads 9 col of elements in array 1000000 time=0.0410 s
+
+threads 8 col of elements in array 1000000 time=0.0433 s
+
+threads 8 col of elements in array 1000000 time=0.0408 s
+
+threads 8 col of elements in array 1000000 time=0.0413 s
+
+threads 8 col of elements in array 100 time=0.0005 s
+
+threads 1 col of elements in array 100 time=0.0004 s
+
+threads 1 col of elements in array 100 time=0.0004 s
+
+threads 1 col of elements in array 100 time=0.0004 s
+
+threads 1 col of elements in array 100 time=0.0004 s
+
+threads 10 col of elements in array 100 time=0.0007 s
+
+threads 10 col of elements in array 100 time=0.0008 s
+
+threads 10 col of elements in array 100 time=0.0007 s
+
+threads 100 col of elements in array 100 time=0.0052 s
+
+###Выводы
+
+Чем больше элементов нужно отсортировать тем больше нужно потоков, но при слишком большом количестве потоков время сортировки начинает замедляться.
+Пример: при 1000000 элементов быстрее всего сортировка произошла на 8 потоках, медлееннее всего на 1. Увеличение 8 потоков в 3 раза повысило время выполнения более чем на 0.1 секунды.
